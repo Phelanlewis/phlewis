@@ -11,7 +11,7 @@ class DataActions {
 
   //Method for getting the data from the provided end point URL
   api(endPoint) {
-    return new new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       axios.get(endPoint).then((response) => {
         resolve(response.data);
       }).catch((err) => {
