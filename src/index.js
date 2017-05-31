@@ -3,6 +3,7 @@ import { render }   from 'react-dom';
 import App          from './components/App.js';
 import Home         from './components/Home.js';
 import DataActions  from './actions/DataActions.js';
+import views        from './components/view.js';
 
 import {
   browserHistory,
@@ -16,9 +17,15 @@ class AppInitializer {
 
     buildRoutes(data) {
       return data.pages.map((page, i) => {
+        const component = views[page.slug];
         return (
           <Route
-            component={ Home }
+            getComponent={(nextState, cb) => {
+              require.ensure([], (require => {
+                cb(null, require(component).default);
+                })
+              )
+            }}
             key={ page.id }
             path={`/${page.slug}`}
           />
