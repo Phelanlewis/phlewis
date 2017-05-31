@@ -10,7 +10,6 @@ export default class App extends React.Component {
       <div className="wrapper">
         {this.props.children}
       </div>
-    )
+    );
   }
-
-};
+}

@@ -5,8 +5,10 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        <h1>WHY WHY!!!!</h1>
+        <h1>Hello World</h1>
       </div>
-  })
-
+    );
+  }
 }
+
+export default Home;
