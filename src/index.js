@@ -21,16 +21,15 @@ class AppInitializer {
         return (
           <Route
             getComponent={(nextState, cb) => {
-              require.ensure([], (require => {
+              require.ensure([], (require) => {
                 cb(null, require(component).default);
-                })
-              )
+              });
             }}
             key={ page.id }
             path={`/${page.slug}`}
           />
-        )
-      })
+        );
+      });
     }
 
     run() {
